@@ -9,7 +9,30 @@ const app = express();
 
 app.route('/funkos')
   .get((req, res) => {
-      // manejar solicitud GET
+    const id = req.query.id as string;
+    if(id !== undefined) {
+      const usuario = req.query.usuario as string;
+      let respuesta: ResponseType = { success: false, funkoPops: undefined };
+      if(ManejadorJSON.mostrarFunkoDB(parseInt(id), usuario).length === 0) {
+        respuesta = { success: false, funkoPops: undefined };
+      } else {
+        const funko = ManejadorJSON.mostrarFunkoDB(parseInt(id), usuario);
+        respuesta = { success: true, funkoPops: funko };
+      }
+      res.send(JSON.stringify(respuesta));
+    } else if(id === undefined) {
+        const usuario = req.query.usuario as string;
+        let respuesta: ResponseType = { success: false, funkoPops: undefined };
+        if(ManejadorJSON.listarFunkoDB(usuario).length === 0) {
+          respuesta = { success: false, funkoPops: undefined };
+        } else {
+          const funkoVector = ManejadorJSON.listarFunkoDB(usuario);
+          respuesta = { success: true, funkoPops: funkoVector };
+        }
+        res.send(JSON.stringify(respuesta));
+      } else {
+        res.send(JSON.stringify({ success: false, funkoPops: undefined }));
+    }
   })
   .post((req, res) => {
     const usuario = req.query.usuario as string;
@@ -64,33 +87,6 @@ app.route('/funkos')
     }
     res.send(JSON.stringify(respuesta));
   });
-
-
-
-// app.get('/list', (req, res) => {
-//   const id = req.query.id as string;
-//   const usuario = req.query.usuario as string;
-//   let respuesta: ResponseType = { success: false, funkoPops: undefined };
-//   if(ManejadorJSON.mostrarFunkoDB(parseInt(id), usuario).length === 0) {
-//     respuesta = { success: false, funkoPops: undefined };
-//   } else {
-//     const funko = ManejadorJSON.mostrarFunkoDB(parseInt(id), usuario);
-//     respuesta = { success: true, funkoPops: funko };
-//   }
-//   res.send(JSON.stringify(respuesta));
-// });
-
-// app.get('/read', (req, res) => {
-//   const usuario = req.query.usuario as string;
-//   let respuesta: ResponseType = { success: false, funkoPops: undefined };
-//   if(ManejadorJSON.listarFunkoDB(usuario).length === 0) {
-//     respuesta = { success: false, funkoPops: undefined };
-//   } else {
-//     const funkoVector = ManejadorJSON.listarFunkoDB(usuario);
-//     respuesta = { success: true, funkoPops: funkoVector };
-//   }
-//   res.send(JSON.stringify(respuesta));
-// });
 
 
 // Acción por defecto
