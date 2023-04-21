@@ -1,20 +1,16 @@
 import { Funko } from "./funko/funko.js";
 
-
-// export type FunkoPop = {
-//   id: number;
-//   nombre: string;
-//   descripcion: string;
-//   tipo: TipoFunko;
-//   genero: GeneroFunko;
-//   franquicia: string;
-//   numero: number;
-//   exclusivo: boolean;
-//   caracteristicas: string;
-//   valor: number;
-// }
+export enum Action { 
+  "Add" = "Add",
+  "Remove" = "Remove",
+  "List" = "List",
+  "Update" = "Update",
+  "Read" = "Read"
+}
 
 export type ResponseType = {
   success: boolean;
+  type: Action,
+  info: string,
   funkoPops?: Funko[];
 }
