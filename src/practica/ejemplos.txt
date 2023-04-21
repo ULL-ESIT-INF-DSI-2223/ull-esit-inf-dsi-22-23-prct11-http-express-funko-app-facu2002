@@ -1,0 +1,9 @@
+// Para modificar un funko existente
+http://localhost:3000/funkos/?usuario=facundo&id=10&nombre=elfunko&descripcion=el mejor funko pero esta vez si&tipo=Pop&genero=Animación&franquicia=Mercadona&numero=3&exclusivo=true&caracteristicas=ninguna&valor=30
+
+// Para crear un funko existente
+http://localhost:3000/funkos/?usuario=facundo&id=6&nombre=nuevo&descripcion=ahora tiene una descripcion digna&tipo=Pop&genero=Animación&franquicia=Mercadona&numero=3&exclusivo=true&caracteristicas=ninguna&valor=30
+
+// Para eliminar un funko existente
+http://localhost:3000/funkos/?usuario=facundo&id=6
+
