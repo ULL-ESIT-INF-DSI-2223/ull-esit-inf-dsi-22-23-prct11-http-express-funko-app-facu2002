@@ -25,9 +25,9 @@
 
 ### Introducción
 
-En esta práctica se nos pide realizar las funciones anteriormente realizadas pero con la utilización de un servidor Express. Para ello, debemos realizar sobre él, diferentes tipos de peticiones http. Además en la modificación se nos pide que se pueda ejecutar un comando en el servidor a partir de una petición http GET.
+En esta práctica se nos pide realizar las funciones anteriormente realizadas para la clase Funko pero con la utilización de un servidor Express. Para ello, debemos realizar sobre él, diferentes tipos de peticiones http. Además, en la modificación se nos pide que se pueda ejecutar un comando en el servidor a partir de una petición http GET.
 
-Nota: para poder ejecutar las pruebas, hay que tener en cuenta que el servidor debe estar ejecutándose, ya que las pruebas se realizan sobre el servidor.
+> **Nota:** para poder ejecutar las pruebas, hay que tener en cuenta que el servidor debe estar ejecutándose, ya que las pruebas se realizan sobre el servidor.
 
 
 ### Ejercicio 1
