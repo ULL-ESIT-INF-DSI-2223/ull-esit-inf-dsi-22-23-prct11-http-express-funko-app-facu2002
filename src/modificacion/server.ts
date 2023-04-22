@@ -5,9 +5,15 @@ import {spawn} from 'child_process';
 //Al mismo tiempo, haga que el servidor devuelva, por defecto, algo similar a '<h1>404</h1>' en el caso 
 //de que se intente acceder a una ruta no válida.
 
+
+/**
+ * Servidor Express
+ */
 const app = express();
 
-
+/**
+ * Función principal en la que se debe ejecutar el comando solicitado en la petición.
+ */
 app.get('/execmd', (req, res) => {
   const cmd = req.query.cmd as string;
   let args;
@@ -44,12 +50,16 @@ app.get('/execmd', (req, res) => {
 });
 
 
-// Acción por defecto
+/**
+ * Acción por defecto
+ */
 app.use((_, res) => {
   res.send('<h1>404</h1>');
 });
 
-
-app.listen(3000, () => {
-  console.log('Server is up on port 3000');
+/**
+ * Inicio del servidor
+ */
+app.listen(3001, () => {
+  console.log('Server is up on port 3001');
 });

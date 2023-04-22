@@ -1,7 +1,8 @@
 {
   "entryPoints": [
-    "./src/modificacion/**/*.ts",
-    "./src/practica/**/*.ts"
+    "./src/modificacion/*.ts",
+    "./src/practica/**/*.ts",
+    "./src/practica/funko/*.ts"
   ],
   "out": "./docs"
 }
